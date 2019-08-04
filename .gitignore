@@ -2,6 +2,8 @@
 /*
 
 # Whitelisted  files
+!.gitattributes
+!LICENSE
 !.gitignore
 !README.md
 !arrayManipulation.py
