@@ -63,6 +63,8 @@ def btnPlay_OnClick(p1):
 	Field.createFieldPointsTypeMatrix(numberOfGoalCells, numberOfHorzCells, numberOfVertCells)
 	Field.createNodesAndEdges()
 	Field.createGraphicNodesAndEdges()
+	changeToplevelAndCanvasSize()
+
 	Field.setStartNode()
 
 	Field.clearPlayersData()
@@ -98,9 +100,23 @@ def btnPlay_OnClick(p1):
 	w.lblPlayer1Name.config(text=Field.playersName[0])
 	w.lblPlayer2Name.config(text=Field.playersName[1])
 
-
 	Field.setActualPlayer(0)
 	Field.letPlayerPlay()
+
+def changeToplevelAndCanvasSize():
+	(bbox_x, bbox_y, bbox_width, bbox_height) = w.Canvas1.bbox(tk.ALL)
+	canvas_newWidth = bbox_width + bbox_x
+	canvas_newHeight = bbox_height + bbox_y
+	canvas_pi = w.Canvas1.place_info()
+	canvas_pi['width'] = str(canvas_newWidth)
+	canvas_pi['height'] = str(canvas_newHeight)
+	w.Canvas1.place(canvas_pi)
+
+	(canvas_x, canvas_y) = (w.Canvas1.winfo_x(), w.Canvas1.winfo_y())
+	top_newWidth = canvas_x + canvas_newWidth
+	top_newHeight = canvas_y + canvas_newHeight
+	top_level.geometry("%dx%d" % (top_newWidth, top_newHeight))
+
 
 def btnSetGameProperties_OnClick(p1):
 	gameSettings.create_Toplevel1(root, fcnSetGameProperties=setGameProperties,

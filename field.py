@@ -362,8 +362,6 @@ class Field(object):
 		else:
 			return False
 
-
-
 	def nodeGraphic_Click(self, e):
 		if self.playersType[self.actualPlayerID]==PlayerType.AI:
 			return
