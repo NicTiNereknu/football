@@ -38,3 +38,7 @@
 !setup.py
 !settings.jpg
 !field.jpg
+!colorSettings_support.py
+!colorSettings.py
+!colorSettings.tcl
+!colorSettings.pkl

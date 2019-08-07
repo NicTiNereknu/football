@@ -510,7 +510,12 @@ class Field(object):
 			#self.canvasArrowDOWN.place(self.canvasArrowDOWN.pi)
 			#self.canvasArrowUP.place_forget()
 		
+	def RGBtoHEX(rgb):
+		return '#%02x%02x%02x' % rgb
 
+	def HEXtoRGB(hex):
+		hex = hex.lstrip('#')
+		return(  tuple(  int(hex[i:i+2], 16) for i in (0, 2, 4)  )  )
 			
 
 

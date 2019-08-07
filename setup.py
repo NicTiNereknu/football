@@ -20,7 +20,7 @@ if sys.platform == 'win32':
 	base = 'Win32GUI'
 
 includeFiles = ['BorderTypeCombination.csv', 'FieldPointsType.csv', 'FieldPointsTypeCombination.csv',
-				'mySave.pkl', 'arrow-up-double-2.gif', 'arrow-down-double-2.gif']
+				'mySave.pkl', 'arrow-up-double-2.gif', 'arrow-down-double-2.gif', 'colorSettings.pkl']
 
 build_exe_options = {
 	'include_files': includeFiles

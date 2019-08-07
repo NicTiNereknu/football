@@ -23,6 +23,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="colorSettings.py" />
+    <Compile Include="colorSettings_support.py" />
     <Compile Include="edge.py" />
     <Compile Include="extendSupport.py" />
     <Compile Include="field.py" />
@@ -45,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BorderTypeCombination.csv" />
+    <Content Include="colorSettings.tcl" />
     <Content Include="FieldPointsType.csv" />
     <Content Include="FieldPointsTypeCombination.csv" />
     <Content Include="gameSettings.tcl" />

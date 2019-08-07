@@ -9,6 +9,7 @@
 #    Jul 07, 2019 12:57:13 PM CEST  platform: Windows NT
 #    Jul 07, 2019 08:44:09 PM CEST  platform: Windows NT
 #    Jul 23, 2019 12:31:44 PM CEST  platform: Windows NT
+#    Aug 07, 2019 09:15:59 AM CEST  platform: Windows NT
 
 import sys
 import field
@@ -17,6 +18,7 @@ import pickle
 import playerAI
 import time
 import gameSettings
+import colorSettings
 
 try:
 	import Tkinter as tk
@@ -37,6 +39,29 @@ class MySave():
 	def __init__(self):
 		self.edgesUsed = w.Field.getEdgesUsed()
 		self.actualNodeID = w.Field.actualNode.id
+
+
+def btnSetColorProperties_OnClick(p1):
+	colorSettings.create_Toplevel1(root, fcnSetColorProperties=setColorProperties)
+	debug = 1
+
+def setColorProperties():
+	# nacti barvy ze souboru
+	with open('colorSettings.pkl', 'rb') as f:
+		mySave = pickle.load(f)
+
+	w.Field.nodeRadius = mySave.nodeRadius
+	w.Field.horzNodeDistance = mySave.horizontalNodeDistance
+	w.Field.vertNodeDistance = mySave.verticalNodeDistance
+	w.Field.widthEdgeDefault = mySave.edgeWidthDefault
+	w.Field.widthEdgeUsed = mySave.edgeWidthUsed
+	w.Field.colorNodeDefault = mySave.colorNodeDefault
+	w.Field.colorNodeActual = mySave.colorNodeActual
+	w.Field.colorEdgeDefault = mySave.colorEdgeDefault
+	w.Field.colorEdgePlayer1 = mySave.colorEdgePlayer1
+	w.Field.colorEdgePlayer2 = mySave.colorEdgePlayer2
+	w.Field.colorEdgePlayers = [w.Field.colorEdgePlayer1, w.Field.colorEdgePlayer2]
+	w.Field.colorEdgeBorder = mySave.colorEdgeBorder
 
 def btnPlay_OnClick(p1):
 	Field = w.Field
@@ -116,7 +141,6 @@ def changeToplevelAndCanvasSize():
 	top_newWidth = canvas_x + canvas_newWidth
 	top_newHeight = canvas_y + canvas_newHeight
 	top_level.geometry("%dx%d" % (top_newWidth, top_newHeight))
-
 
 def btnSetGameProperties_OnClick(p1):
 	gameSettings.create_Toplevel1(root, fcnSetGameProperties=setGameProperties,
@@ -308,6 +332,7 @@ def init(top, gui, *args, **kwargs):
 	Field = field.Field()
 	Field.setWidgets(w.Canvas1, w.Label1, w.trvPath, w.canvasArrowUP, w.canvasArrowDOWN)
 	w.Field = Field
+	setColorProperties()
 
 def destroy_window():
 	# Function which closes the window.
@@ -318,7 +343,6 @@ def destroy_window():
 if __name__ == '__main__':
 	import main
 	main.vp_start_gui()
-
 
 
 
