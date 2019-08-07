@@ -1,7 +1,7 @@
 # Fotbal (Hokej) / Футбол (игра на бумаге) / Paper soccer 
 Python version of traditional paper and pencil game, for more information go to [wikipedia](https://en.wikipedia.org/wiki/Paper_soccer).
 
-GUI created with [PAGE](http://page.sourceforge.net).
+GUI is created in [PAGE](http://page.sourceforge.net).
 
 #### Three modes:
  - human vs human
