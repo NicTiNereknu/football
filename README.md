@@ -9,9 +9,9 @@ GUI is created in [PAGE](http://page.sourceforge.net).
  - ai vs ai
 
 #### How AI works (code in ```playerAI.play()```): 
- 1. AI tries to find longest path with shortest distance to opponents goal.
- 2. AI simulates opponents move, how close can opponent reach AI's goal.
- 3. AI chooses one path by filtering results from 1. and 2.
+ 1. AI tries to find all paths for current field situation.
+ 2. For every path (from 1.) AI simulates opponent's move, how close can opponent reach AI's goal.
+ 3. AI chooses one path by filtering results by longest path (from 1.) and farthest path's end to AI goal (from 2.).
  
 ### Main window
 ![field](field.jpg)
